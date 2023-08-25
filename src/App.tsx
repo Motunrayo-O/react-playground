@@ -7,31 +7,10 @@ import ShoppingListForm from "./components/shopping-tracker/components/ShoppingL
 import categories from "./components/shopping-tracker/categories";
 import ProductList from "./components/ProductList";
 import userService, { User } from "./services/user-servce";
+import useUsers from "./hooks/useUsers";
 
 function App() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const { request, cancel } = userService.getAll<User>();
-    request
-      .then((res) => {
-        setUsers(res.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-      });
-    // .finally(() => {
-    //   setIsLoading(false);
-    // });
-
-    return () => cancel();
-  }, []);
+  const { users, error, isLoading, setUsers, setError } = useUsers();
 
   const deleteUser = (user: User) => {
     const originalUsers = [...users];
