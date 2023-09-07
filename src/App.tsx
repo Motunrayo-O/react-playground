@@ -8,9 +8,14 @@ import categories from "./components/shopping-tracker/categories";
 import ProductList from "./components/ProductList";
 import userService, { User } from "./services/user-servce";
 import useUsers from "./hooks/useUsers";
+import Reducer from "./components/Reducer";
 
 function App() {
-  const { users, error, isLoading, setUsers, setError } = useUsers();
+  const [checked, setChecked] = useState(false);
+
+  return <Reducer />;
+
+  /*const { users, error, isLoading, setUsers, setError } = useUsers();
 
   const deleteUser = (user: User) => {
     const originalUsers = [...users];
@@ -83,7 +88,7 @@ function App() {
         ))}
       </ul>
     </>
-  );
+  ); //*/
 }
 
 export default App;
