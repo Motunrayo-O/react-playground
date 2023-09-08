@@ -8,12 +8,10 @@ import categories from "./components/shopping-tracker/categories";
 import ProductList from "./components/ProductList";
 import userService, { User } from "./services/user-servce";
 import useUsers from "./hooks/useUsers";
-import Reducer from "./components/Reducer";
+import Home from "./components/Home";
 
 function App() {
-  const [checked, setChecked] = useState(false);
-
-  return <Reducer />;
+  return <Home />;
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();
 
