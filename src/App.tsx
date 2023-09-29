@@ -9,9 +9,10 @@ import ProductList from "./components/ProductList";
 import userService, { User } from "./services/user-servce";
 import useUsers from "./hooks/useUsers";
 import Home from "./components/Home";
+import PostListInfinite from "./components/react-query/PostListInfiniteLoad";
 
 function App() {
-  return <Home />;
+  return <PostListInfinite />;
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();
 
