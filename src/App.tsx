@@ -10,9 +10,16 @@ import userService, { User } from "./services/user-servce";
 import useUsers from "./hooks/useUsers";
 import Home from "./components/Home";
 import PostListInfinite from "./components/react-query/PostListInfiniteLoad";
+import TodoForm from "./components/react-query/TodoForm";
+import TodoList from "./components/react-query/TodoList";
 
 function App() {
-  return <PostListInfinite />;
+  return (
+    <>
+      <TodoForm />
+      <TodoList />
+    </>
+  );
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();
 

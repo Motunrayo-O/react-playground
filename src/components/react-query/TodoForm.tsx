@@ -3,14 +3,33 @@ import { Todo } from "../../hooks/useTodos";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
+interface AddTodoContext {
+  todosBeforeUpdate: Todo[];
+}
+
 const TodoForm = () => {
   const queryClient = useQueryClient();
 
-  const addNewTodo = useMutation<Todo, Error, Todo>({
+  const addNewTodo = useMutation<Todo, Error, Todo, AddTodoContext>({
     mutationFn: (todo: Todo) =>
       axios
         .post<Todo>("https://jsonplaceholder.typicode.com/todos", todo)
         .then((res) => res.data),
+    onMutate: (todoToCreate: Todo) => {
+      const todosBeforeUpdate =
+        queryClient.getQueryData<Todo[]>(["todos"]) || [];
+
+      // optimistic update
+      queryClient.setQueryData<Todo[]>(["todos"], (todos) => [
+        todoToCreate,
+        ...(todos || []),
+      ]);
+
+      // clear the input field
+      if (ref.current) ref.current.value = "";
+
+      return { todosBeforeUpdate };
+    },
     onSuccess: (createdTodo, todoToCreate) => {
       console.log(createdTodo);
 
@@ -19,14 +38,16 @@ const TodoForm = () => {
       //   queryKey: ["todos"],
       // });
 
-      // JSON Placeholder does not actually add the item so update cache manually
-      queryClient.setQueryData<Todo[]>(["todos"], (todos) => [
-        createdTodo,
-        ...(todos || []),
-      ]);
+      //JSON Placeholder does not actually add the item so update cache manually
+      queryClient.setQueryData<Todo[]>(["todos"], (todos) =>
+        todos?.map((t) => (t === todoToCreate ? createdTodo : t))
+      );
+    },
+    onError: (error: Error, todoToCreate, context) => {
+      if (!context) return;
 
-      // clear the input field
-      if (ref.current) ref.current.value = "";
+      // restore the data to state before update attempt
+      queryClient.setQueryData(["todos"], context.todosBeforeUpdate);
     },
   });
   const ref = useRef<HTMLInputElement>(null);
