@@ -1,5 +1,5 @@
 import React from "react";
-import usePostsInfinite from "../../hooks/usePostsInfinite";
+import usePostsInfinite from "./hooks/usePostsInfinite";
 
 const PostListInfinite = () => {
   const pageSize = 10;

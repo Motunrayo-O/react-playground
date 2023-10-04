@@ -1,5 +1,5 @@
 import { useState } from "react";
-import usePostsPaginated from "../../hooks/usePostsPaginated";
+import usePostsPaginated from "./hooks/usePostsPaginated";
 
 const PostListPaginated = () => {
   const pageSize = 10;
