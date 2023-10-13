@@ -1,25 +1,8 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import { CanceledError } from "./services/api-cilent";
-import ShoppingList from "./components/shopping-tracker/components/ShoppingList";
-import ShoppingListFilter from "./components/shopping-tracker/components/ShoppingListFilter";
-import ShoppingListForm from "./components/shopping-tracker/components/ShoppingListForm";
-import categories from "./components/shopping-tracker/categories";
-import ProductList from "./components/ProductList";
-import userService, { User } from "./services/user-servce";
-import useUsers from "./hooks/useUsers";
-import Home from "./components/Home";
-import PostListInfinite from "./components/react-query/PostListInfiniteLoad";
-import TodoForm from "./components/react-query/TodoForm";
-import TodoList from "./components/react-query/TodoList";
+import Counter from "./components/state-management/Counter";
 
 function App() {
-  return (
-    <>
-      <TodoForm />
-      <TodoList />
-    </>
-  );
+  return <Counter />;
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();
 
