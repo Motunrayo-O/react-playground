@@ -1,6 +1,5 @@
 import { useReducer } from "react";
 import "./App.css";
-import AuthenticationProvider from "./components/state-management/auth/AuthenticationProvider";
 import Counter from "./components/state-management/counter/Counter";
 import HomePage from "./components/state-management/HomePage";
 import NavBar from "./components/state-management/NavBar";
@@ -9,13 +8,11 @@ import { TaskListProvider } from "./components/state-management/tasklist";
 
 function App() {
   return (
-    <AuthenticationProvider>
-      <TaskListProvider>
-        <NavBar />
-        <HomePage />
-        <Counter />
-      </TaskListProvider>
-    </AuthenticationProvider>
+    <TaskListProvider>
+      <NavBar />
+      <HomePage />
+      <Counter />
+    </TaskListProvider>
   );
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();

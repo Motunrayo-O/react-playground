@@ -16,7 +16,7 @@ const LoginStatus = () => {
     );
   return (
     <div>
-      <a onClick={() => login()} href="#">
+      <a onClick={() => login("Ayra Starr")} href="#">
         Login
       </a>
     </div>
