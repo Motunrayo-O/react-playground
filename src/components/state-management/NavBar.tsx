@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import LoginStatus from "./LoginStatus";
+import LoginStatus from "./auth/LoginStatus";
 import TaskListContext from "./tasklist/taskListContext";
+import { useTaskList } from "./auth";
 
 const NavBar = () => {
-  const { tasks } = useContext(TaskListContext);
+  const { tasks } = useTaskList();
 
   return (
     <nav className="navbar d-flex justify-content-between">

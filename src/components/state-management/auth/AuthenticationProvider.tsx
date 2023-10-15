@@ -1,6 +1,22 @@
 import { ReactNode, useReducer } from "react";
-import authenticationReducer from "./reducers/authenticationReducer";
-import AuthenticationContext from "./contexts/authenticationContext";
+import AuthenticationContext from "./authenticationContext";
+
+export interface AuthenticationAction {
+  type: "login" | "logout";
+}
+
+const authenticationReducer = (
+  user: string,
+  action: AuthenticationAction
+): string => {
+  switch (action.type) {
+    case "login":
+      return "Ayra Starr";
+    case "logout":
+      return "";
+  }
+};
+
 
 interface Props {
   children: ReactNode;

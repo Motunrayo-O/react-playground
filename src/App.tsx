@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import "./App.css";
-import AuthenticationProvider from "./components/state-management/AuthenticationProvider";
-import Counter from "./components/state-management/Counter";
+import AuthenticationProvider from "./components/state-management/auth/AuthenticationProvider";
+import Counter from "./components/state-management/counter/Counter";
 import HomePage from "./components/state-management/HomePage";
 import NavBar from "./components/state-management/NavBar";
 import TaskListContext from "./components/state-management/tasklist/taskListContext";
