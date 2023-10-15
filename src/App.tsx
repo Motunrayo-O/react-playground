@@ -13,6 +13,7 @@ function App() {
       <TaskListProvider>
         <NavBar />
         <HomePage />
+        <Counter />
       </TaskListProvider>
     </AuthenticationProvider>
   );
