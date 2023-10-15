@@ -5,12 +5,9 @@ import Counter from "./components/state-management/Counter";
 import HomePage from "./components/state-management/HomePage";
 import NavBar from "./components/state-management/NavBar";
 import TaskListContext from "./components/state-management/tasklist/taskListContext";
-import taskListReducer from "./components/state-management/tasklist/taskListReducer";
-import TaskListProvider from "./components/state-management/tasklist/TaskListProvider";
+import { TaskListProvider } from "./components/state-management/tasklist";
 
 function App() {
-  const [tasks, dispatch] = useReducer(taskListReducer, []);
-
   return (
     <AuthenticationProvider>
       <TaskListProvider>
