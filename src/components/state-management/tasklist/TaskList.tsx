@@ -1,4 +1,4 @@
-import useTaskList from "./hooks/useTaskList";
+import useTaskList from "./useTaskList";
 
 const TaskList = () => {
   const { tasks, dispatch } = useTaskList();

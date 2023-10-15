@@ -4,9 +4,9 @@ import AuthenticationProvider from "./components/state-management/Authentication
 import Counter from "./components/state-management/Counter";
 import HomePage from "./components/state-management/HomePage";
 import NavBar from "./components/state-management/NavBar";
-import TaskListContext from "./components/state-management/contexts/taskListContext";
-import taskListReducer from "./components/state-management/reducers/taskListReducer";
-import TaskListProvider from "./components/state-management/TaskListProvider";
+import TaskListContext from "./components/state-management/tasklist/taskListContext";
+import taskListReducer from "./components/state-management/tasklist/taskListReducer";
+import TaskListProvider from "./components/state-management/tasklist/TaskListProvider";
 
 function App() {
   const [tasks, dispatch] = useReducer(taskListReducer, []);

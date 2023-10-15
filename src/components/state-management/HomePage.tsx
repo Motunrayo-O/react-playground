@@ -1,4 +1,4 @@
-import TaskList from './TaskList';
+import TaskList from "./tasklist/TaskList";
 
 const HomePage = () => {
   return <TaskList />;
