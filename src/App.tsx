@@ -6,16 +6,17 @@ import HomePage from "./components/state-management/HomePage";
 import NavBar from "./components/state-management/NavBar";
 import TaskListContext from "./components/state-management/contexts/taskListContext";
 import taskListReducer from "./components/state-management/reducers/taskListReducer";
+import TaskListProvider from "./components/state-management/TaskListProvider";
 
 function App() {
   const [tasks, dispatch] = useReducer(taskListReducer, []);
 
   return (
     <AuthenticationProvider>
-      <TaskListContext.Provider value={{ tasks, dispatch }}>
+      <TaskListProvider>
         <NavBar />
         <HomePage />
-      </TaskListContext.Provider>
+      </TaskListProvider>
     </AuthenticationProvider>
   );
 
