@@ -1,8 +1,23 @@
+import { useReducer } from "react";
 import "./App.css";
+import AuthenticationProvider from "./components/state-management/AuthenticationProvider";
 import Counter from "./components/state-management/Counter";
+import HomePage from "./components/state-management/HomePage";
+import NavBar from "./components/state-management/NavBar";
+import TaskListContext from "./components/state-management/contexts/taskListContext";
+import taskListReducer from "./components/state-management/reducers/taskListReducer";
 
 function App() {
-  return <Counter />;
+  const [tasks, dispatch] = useReducer(taskListReducer, []);
+
+  return (
+    <AuthenticationProvider>
+      <TaskListContext.Provider value={{ tasks, dispatch }}>
+        <NavBar />
+        <HomePage />
+      </TaskListContext.Provider>
+    </AuthenticationProvider>
+  );
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();
 

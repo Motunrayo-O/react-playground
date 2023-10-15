@@ -3,8 +3,7 @@ import authenticationReducer from "./reducers/authenticationReducer";
 import AuthenticationContext from "./contexts/authenticationContext";
 
 const LoginStatus = () => {
-  const { user, dispatchAuth } = useContext(AuthenticationContext);
-
+  const { user, dispatch: dispatchAuth } = useContext(AuthenticationContext);
 
   if (user)
     return (
