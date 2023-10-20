@@ -1,6 +1,6 @@
 import { useParams, useSearchParams, useLocation } from "react-router-dom";
 
-const UserDetailPage = () => {
+const UserDetail = () => {
   const params = useParams();
   console.log("params: ", JSON.stringify(params));
   const [searchParams, setSearchParams] = useSearchParams();
@@ -11,4 +11,4 @@ const UserDetailPage = () => {
   return <p>User</p>;
 };
 
-export default UserDetailPage;
+export default UserDetail;
