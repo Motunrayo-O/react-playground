@@ -1,16 +1,14 @@
 import { useReducer } from "react";
 import "./App.css";
-import Counter from "./components/state-management/counter/Counter";
-import HomePage from "./components/state-management/HomePage";
-import NavBar from "./components/state-management/NavBar";
-import TaskListContext from "./components/state-management/tasklist/taskListContext";
-import { TaskListProvider } from "./components/state-management/tasklist";
+import Counter from "./state-management/counter/Counter";
+import HomePage from "./state-management/HomePage";
+import NavBar from "./state-management/NavBar";
+import TaskListContext from "./state-management/tasklist/taskListContext";
+import { TaskListProvider } from "./state-management/tasklist";
 import PostList from "./react-query/PostList";
 
 function App() {
-  return (
-    <PostList/>
-  );
+  return <Counter />;
 
   /*const { users, error, isLoading, setUsers, setError } = useUsers();
 
