@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
+  // throw new Error("boo");
   return (
     <nav
       className="navbar navbar-expand-lg"
